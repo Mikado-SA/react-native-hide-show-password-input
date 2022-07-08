@@ -9,6 +9,8 @@ const PasswordInputText = ({
   iconColor,
   label,
   style,
+  iconStyle,
+  fieldStyle,
   getRef,
   ...rest
 }) => {
@@ -31,9 +33,10 @@ const PasswordInputText = ({
         ref={passReference}
         secureTextEntry={isPassword}
         label={label}
+        style={fieldStyle}
       />
       <Icon
-        style={styles.icon}
+        style={iconStyle}
         name={eyeIcon}
         size={iconSize}
         color={iconColor}
@@ -43,24 +46,27 @@ const PasswordInputText = ({
   );
 };
 
-const styles = StyleSheet.create({
-  icon: {
-    position: "absolute",
-    top: 33,
-    right: 0,
-  },
-});
-
 PasswordInputText.defaultProps = {
   iconSize: 25,
   label: "Password",
   iconColor: "#222222",
+  iconStyle: {
+    position: "absolute",
+    top: 33,
+    right: 0,
+  },
+  fieldStyle: {
+    margin: 0,
+    padding: 0,
+  }
 };
 
 PasswordInputText.propTypes = {
   iconSize: PropTypes.number,
   label: PropTypes.string,
   iconColor: PropTypes.string,
+  iconStyle: PropTypes.object,
+  fieldStyle: PropTypes.object,
 };
 
 export default PasswordInputText;
